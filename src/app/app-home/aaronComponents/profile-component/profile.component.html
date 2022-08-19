@@ -1,0 +1,16 @@
+<mat-card class="profile-card">
+    <mat-card-title>{{ account.name }}</mat-card-title>
+    <mat-card-content>
+        <p>This BAN's port is {{ account.status }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onSetTo('unlocked')">Set to 'Unlocked'</button> &nbsp;
+        <button mat-raised-button color="accent" (click)="onSetTo('locked')">Set to 'Locked'</button> &nbsp;
+        <button mat-raised-button color="warn" (click)="onRemove()">Remove Account</button>
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-progress-bar color="accent" mode="query"></mat-progress-bar>
+        <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>
+&nbsp;

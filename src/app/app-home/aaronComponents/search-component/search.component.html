@@ -1,0 +1,15 @@
+<mat-card>
+<mat-card-title>Account Lookup</mat-card-title>
+<mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput type="text" #input maxlength="9" placeholder="" #accountName (keypress)="keyPressCheck($event)">
+    <mat-hint align="end">{{input.value?.length || 0}}/9</mat-hint>
+    
+</mat-form-field>
+<br> 
+<button mat-raised-button color="primary" (click)="onRunBAN(accountName.value)">Add BAN!</button>
+&nbsp;
+<br>
+</mat-card>
+&nbsp;
+<app-profile *ngFor="let acc of accounts; let i = index" [account]="acc" [id]="i"></app-profile>
