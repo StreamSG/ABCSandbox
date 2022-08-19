@@ -30,7 +30,13 @@ export class SearchComponent {
     if(this.count < 5) {
       this.count++;
       if(name.length === 9) {
-        this.accountsService.addAccount(name);
+        const shouldPortBeLocked = Math.random() > 0.5 ? true : false;
+        const wasNewAccountAdded = this.accountsService.addAccount(name, shouldPortBeLocked);
+        if(!wasNewAccountAdded) {
+          this.snackBar.open(`You are already monitoring BAN ${name}!`, '', {
+            duration: 3000
+          });
+        }
       } else {
         this.snackBar.open('Please enter a valid 9 digit account number!', '', {
           duration: 3000
